@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 
 
-export default async function PostPage({
+export default async function Page({
   params
 }: {
   params: Promise<{ id: string }>
@@ -21,8 +21,8 @@ export default async function PostPage({
 
   return (
     <div>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
+      <h1 className="text-3xl text-center mb-10 font-bold">{post.title}</h1>
+      <p className="text-zinc-400 text-center">{post.content}</p>
     </div>
   )
 }

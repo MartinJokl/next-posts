@@ -10,8 +10,8 @@ export default async function Posts() {
   // await new Promise(resolve => setTimeout(resolve, 1000));
 
   return (
-    <div className="m-5">
-      <h1 className="text-3xl font-bold mb-4">Post</h1>
+    <>
+      <h1 className="text-3xl text-center mb-10 font-bold">Posts</h1>
       {posts.map(post => (
         <Link key={post.id} href={`/posts/${post.id}`}>
           <div className='my-5 bg-zinc-900 w-[50%] mx-auto p-4 rounded-xl'>
@@ -19,6 +19,6 @@ export default async function Posts() {
           </div>
         </Link>
       ))}
-    </div>
+    </>
   );
 }
