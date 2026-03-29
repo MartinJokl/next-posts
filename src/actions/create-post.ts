@@ -5,7 +5,7 @@ import db from "@/db/drizzle";
 import { postsTable } from "@/db/schema";
 import { redirect } from "next/navigation";
 
-export async function createPost(formData: FormData) {
+export async function createPost(formData: FormData): Promise<void> {
   const username: string | null = await getCurrentUsername();
   if (!username) {
     return;

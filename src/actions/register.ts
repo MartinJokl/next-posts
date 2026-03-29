@@ -13,18 +13,28 @@ export async function register(formData: FormData) {
   const password2 = String(formData.get("password2"));
 
   if (!username || !password || !password2) {
-    return;
+    return 'You have to provide username and password';
   }
   if (password !== password2) {
-    return;
+    return 'Passwords do not match';
   }
 
   const salt: string = await bcrypt.genSalt(10);
   const passwordHash: string = await bcrypt.hash(password, salt);
 
-  await db
-    .insert(userTable)
-    .values({ username, password: passwordHash });
+  try {
+    await db
+      .insert(userTable)
+      .values({ username, password: passwordHash });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      if (String(error.cause).startsWith("Error: Duplicate entry")) {
+        return 'Username is taken';
+      }
+    }
+    return 'Creating account failed';
+  }
+
 
   const token = await createSession(username);
 

@@ -1,6 +1,5 @@
-import { createPost } from "@/actions/create-post";
 import { getCurrentUsername } from "@/auth/session";
-
+import { createPost } from "@/actions/create-post";
 
 export default async function Page() {
   const username: string | null = await getCurrentUsername();
