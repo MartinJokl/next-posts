@@ -13,11 +13,9 @@ export default async function Posts() {
     <>
       <h1 className="text-3xl text-center mb-10 font-bold mt-5">Posts</h1>
       {posts.map(post => (
-        <Link key={post.id} href={`/posts/${post.id}`}>
-          <div className='my-5 bg-zinc-900 w-[50%] mx-auto p-4 rounded-xl'>
-            <h2 className='text-2xl'>{post.title}</h2>
-            <p>{post.creator}</p>
-          </div>
+        <Link className='my-5 bg-zinc-900 w-[50%] mx-auto p-4 rounded-xl' key={post.id} href={`/posts/${post.id}`}>
+          <h2 className='text-2xl'>{post.title}</h2>
+          <p>{post.creator}</p>
         </Link>
       ))}
       {posts.length === 0 && (
