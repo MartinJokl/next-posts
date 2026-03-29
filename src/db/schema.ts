@@ -1,11 +1,12 @@
-import { int, mysqlTable, text, varchar } from "drizzle-orm/mysql-core";
+import { int, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 
 export const postsTable = mysqlTable('posts', {
   id: int().primaryKey().autoincrement(),
   title: varchar({ length: 50 }).notNull(),
   content: text().notNull(),
-  creatorUsername: varchar({ length: 50 }).notNull().references(() => userTable.username, { onDelete: 'cascade' })
+  creatorUsername: varchar({ length: 50 }).notNull().references(() => userTable.username, { onDelete: 'cascade' }),
+  createdAt: timestamp().notNull().defaultNow()
 });
 
 export const userTable = mysqlTable('users', {

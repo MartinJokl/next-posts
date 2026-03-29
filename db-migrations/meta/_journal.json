@@ -50,6 +50,13 @@
       "when": 1774807047795,
       "tag": "0006_gorgeous_hammerhead",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1774810289315,
+      "tag": "0007_glossy_spirit",
+      "breakpoints": true
     }
   ]
 }
