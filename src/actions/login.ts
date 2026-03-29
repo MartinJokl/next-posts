@@ -6,6 +6,7 @@ import { userTable } from '@/db/schema'
 import bcrypt from 'bcryptjs';
 import { eq } from 'drizzle-orm';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation'
 
 export async function login(formData: FormData) {
   const username = String(formData.get("username"));
@@ -14,7 +15,7 @@ export async function login(formData: FormData) {
   if (!username || !password) {
     return;
   }
-
+  console.log('got data');
   const queryResult = await db
     .select({ password: userTable.password })
     .from(userTable)
@@ -42,4 +43,6 @@ export async function login(formData: FormData) {
     secure: inProd,
     sameSite: 'lax'
   });
+
+  redirect('/');
 }

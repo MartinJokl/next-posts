@@ -6,7 +6,7 @@ export default async function Page() {
   const username: string | null = await getCurrentUsername();
   if (!username) {
     return (
-      <h1 className="text-3xl text-center mb-10 font-bold mt-5">Sign in to create a post</h1>
+      <h1 className="text-3xl text-center mb-10 font-bold mt-5">Log in to create a post</h1>
     )
   }
 

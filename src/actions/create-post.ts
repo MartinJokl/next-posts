@@ -3,6 +3,7 @@
 import { getCurrentUsername } from "@/auth/session";
 import db from "@/db/drizzle";
 import { postsTable } from "@/db/schema";
+import { redirect } from "next/navigation";
 
 export async function createPost(formData: FormData) {
   const username: string | null = await getCurrentUsername();
@@ -19,5 +20,7 @@ export async function createPost(formData: FormData) {
 
   await db
     .insert(postsTable)
-    .values({ title: String(title), content: String(content), creatorUsername: username })
+    .values({ title: String(title), content: String(content), creatorUsername: username });
+
+  redirect('/posts');
 }

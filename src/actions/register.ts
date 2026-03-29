@@ -5,6 +5,7 @@ import db from '@/db/drizzle';
 import { userTable } from '@/db/schema'
 import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export async function register(formData: FormData) {
   const username = String(formData.get("username"));
@@ -37,4 +38,6 @@ export async function register(formData: FormData) {
     secure: inProd,
     sameSite: 'lax'
   });
+
+  redirect('/');
 }
