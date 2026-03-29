@@ -1,0 +1,2 @@
+ALTER TABLE `sessions` ADD `user_username` varchar(50) NOT NULL;--> statement-breakpoint
+ALTER TABLE `sessions` ADD CONSTRAINT `sessions_user_username_users_username_fk` FOREIGN KEY (`user_username`) REFERENCES `users`(`username`) ON DELETE cascade ON UPDATE no action;

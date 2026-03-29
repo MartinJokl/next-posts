@@ -1,0 +1,1 @@
+ALTER TABLE `sessions` MODIFY COLUMN `secret_hash` varbinary(32) NOT NULL;

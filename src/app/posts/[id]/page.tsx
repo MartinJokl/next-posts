@@ -21,7 +21,7 @@ export default async function Page({
 
   return (
     <div>
-      <h1 className="text-3xl text-center mb-10 font-bold">{post.title}</h1>
+      <h1 className="text-3xl text-center mb-10 font-bold mt-5">{post.title}</h1>
       <p className="text-zinc-400 text-center">{post.content}</p>
     </div>
   )

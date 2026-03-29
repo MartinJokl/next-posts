@@ -1,0 +1,2 @@
+ALTER TABLE `posts` ADD `creator_username` varchar(50) NOT NULL;--> statement-breakpoint
+ALTER TABLE `posts` ADD CONSTRAINT `posts_creator_username_users_username_fk` FOREIGN KEY (`creator_username`) REFERENCES `users`(`username`) ON DELETE cascade ON UPDATE no action;
