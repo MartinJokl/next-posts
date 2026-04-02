@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import db from '@/db/drizzle';
 import { postsTable } from '@/db/schema';
+import { desc } from 'drizzle-orm';
 
 export default async function Posts() {
   const posts = await db
@@ -11,7 +12,7 @@ export default async function Posts() {
       createdAt: postsTable.createdAt
     })
     .from(postsTable)
-    .orderBy(postsTable.createdAt);
+    .orderBy(desc(postsTable.createdAt));
 
   return (
     <>

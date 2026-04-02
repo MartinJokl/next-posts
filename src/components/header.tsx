@@ -20,8 +20,8 @@ export default async function Header() {
             </>
           ) : (
             <>
-              <li><Link className="bg-zinc-800 border border-zinc-500 py-2 px-4 rounded-md cursor-pointer" href="/register">Register</Link></li>
-              <li><Link className="bg-zinc-800 border border-zinc-500 py-2 px-4 rounded-md cursor-pointer" href="/login">Log in</Link></li>
+              <li><Link className="bg-zinc-800 border hover:bg-zinc-700 border-zinc-500 py-2 px-4 rounded-md cursor-pointer" href="/register">Register</Link></li>
+              <li><Link className="bg-zinc-800 border hover:bg-zinc-700 border-zinc-500 py-2 px-4 rounded-md cursor-pointer" href="/login">Log in</Link></li>
             </>
           )}
       </ul>
