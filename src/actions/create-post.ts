@@ -1,12 +1,12 @@
 "use server";
 
-import { getCurrentUsername } from "@/auth/session";
+import { verifySession } from "@/lib/dal";
 import db from "@/db/drizzle";
 import { postsTable } from "@/db/schema";
 import { redirect } from "next/navigation";
 
 export async function createPost(formData: FormData): Promise<void> {
-  const username: string | null = await getCurrentUsername();
+  const username: string | null = await verifySession();
   if (!username) {
     return;
   }

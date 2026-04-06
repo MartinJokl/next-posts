@@ -73,14 +73,3 @@ export async function validateSessionToken(token: string): Promise<string | null
 
   return session.userUsername;
 }
-
-export const getCurrentUsername = async (): Promise<string | null> => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value ?? null;
-  console.log("runnnig");
-  if (token === null) {
-    return null;
-  }
-  const result = await validateSessionToken(token);
-  return result;
-};

@@ -1,8 +1,8 @@
-import { getCurrentUsername } from "@/auth/session";
+import { verifySession } from "@/lib/dal";
 import { createPost } from "@/actions/create-post";
 
 export default async function Page() {
-  const username: string | null = await getCurrentUsername();
+  const username: string | null = await verifySession();
   if (!username) {
     return (
       <h1 className="text-3xl text-center mb-10 font-bold mt-5">Log in to create a post</h1>

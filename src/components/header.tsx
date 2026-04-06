@@ -1,10 +1,10 @@
 import { logout } from "@/actions/logout";
 import Navbar from "./navbar";
-import { getCurrentUsername } from "@/auth/session";
+import { getCurrentSession } from "@/lib/dal";
 import Link from "next/link";
 
 export default async function Header() {
-  const username = await getCurrentUsername();
+  const username = await getCurrentSession();
 
   return (
     <header className="flex items-center p-8 justify-between text-2xl bg-zinc-900">
