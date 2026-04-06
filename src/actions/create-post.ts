@@ -7,9 +7,7 @@ import { redirect } from "next/navigation";
 
 export async function createPost(formData: FormData): Promise<void> {
   const username: string | null = await verifySession();
-  if (!username) {
-    return;
-  }
+  if (!username) return;
 
   const title = formData.get("title");
   const content = formData.get("content");

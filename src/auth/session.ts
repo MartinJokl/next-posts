@@ -1,7 +1,6 @@
 import db from '@/db/drizzle'
 import { sessionsTable } from '@/db/schema';
 import { eq } from 'drizzle-orm';
-import { cookies } from 'next/headers';
 
 const sessionLifetime = 60 * 60 * 24 * 10;
 

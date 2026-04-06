@@ -8,7 +8,7 @@ import { cache } from 'react';
 
 export const getCurrentSession = cache(async (): Promise<string | null> => {
   const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value ?? null;
+  const token = cookieStore.get("session")?.value ?? null;
   if (token === null) {
     return null;
   }
@@ -26,3 +26,4 @@ export const verifySession = cache(async (): Promise<string | null> => {
   return result;
 });
 
+// tady bych mel i requestovat

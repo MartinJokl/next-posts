@@ -3,6 +3,7 @@
 import { createSession } from '@/auth/session';
 import db from '@/db/drizzle';
 import { userTable } from '@/db/schema'
+import setSessionCookie from '@/lib/session-cookie';
 import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -36,18 +37,9 @@ export async function register(formData: FormData) {
   }
 
 
-  const token = await createSession(username);
+  const session = await createSession(username);
 
-  const enviroment = process.env.NODE_ENV || 'development';
-  const inProd = enviroment === 'production';
-
-  (await cookies()).set({
-    name: 'token',
-    value: token,
-    httpOnly: inProd,
-    secure: inProd,
-    sameSite: 'lax'
-  });
+  setSessionCookie(session, await cookies());
 
   redirect('/');
 }
